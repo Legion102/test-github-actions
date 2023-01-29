@@ -1,4 +1,4 @@
-FROM ${REGISTRY}/it/node:16-alpine as node-package
+FROM node:16-alpine
 
 WORKDIR /app
 COPY package.json .
@@ -14,7 +14,7 @@ COPY src src
 RUN npm run build
 RUN npm prune --production
 
-FROM ${REGISTRY}/it/node:16-alpine
+FROM node:16-alpine
 
 ENV NODE_ENV=production
 
