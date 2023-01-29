@@ -8,11 +8,13 @@ env:
   DOCKER_TLS_CERTDIR: ""
 
 jobs:
-  build_a:
+  run_tests:
     runs-on: ubuntu-latest
     container: docker:19.03.1-dind
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@v3
-      - run: cat Dockerfile.test | docker build  --tag test-image -f - .
-      - run: docker run --rm --name test-container test-image
+      - name: Build docker image
+        run: cat Dockerfile.test | docker build  --tag test-image -f - .
+      - name: Run docker image
+        run: docker run --rm --name test-container test-image
