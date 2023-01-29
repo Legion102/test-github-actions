@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@v3
-      - name: Build and run docker image
-        using: docker
-        image: Dockerfile.test
+      - name: Build docker image
+        run: cat Dockerfile.test | docker build  --tag test-image -f - .
+      - name: Run docker image
+        run: docker run --rm --name test-container test-image
