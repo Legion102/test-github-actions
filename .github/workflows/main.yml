@@ -13,6 +13,6 @@ jobs:
     container: docker:19.03.1-dind
     steps:
       - name: Check out repo's default branch
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - run: cat Dockerfile.test | docker build  --tag test-image -f - .
       - run: docker run --rm --name test-container test-image
