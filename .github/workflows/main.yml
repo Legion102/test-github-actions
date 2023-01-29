@@ -3,9 +3,9 @@ name: Run Dockerfile.test
 on:
   push
 
-env:
-  DOCKER_HOST: tcp://docker:2375
-  DOCKER_TLS_CERTDIR: ""
+#env:
+#  DOCKER_HOST: tcp://docker:2375
+#  DOCKER_TLS_CERTDIR: ""
 
 jobs:
   run_tests:
